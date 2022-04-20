@@ -1,0 +1,62 @@
+<div class="contenedor">
+  <form
+    id="loginform"
+    (ngSubmit)="login()"
+    class="form__login"
+    method="post"
+    autocomplete="off"
+  >
+    <h1 class="title">Login</h1>
+    <div class="inputs__form">
+      <div class="input__form">
+        <i class="fa-solid fa-user" aria-hidden="true"></i>
+        <input
+          [(ngModel)]="user.email"
+          name="InputEmail"
+          type="text"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="input__form">
+        <i class="fa-solid fa-key"></i>
+        <input
+          [(ngModel)]="user.password"
+          name="InputPassword"
+          type="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <a [routerLink]="['/auth/register']" class="input__link">Registrarse</a>
+      <button type="submit" class="cta">Login</button>
+      <p class="text">O inicia sesion con:</p>
+      <div class="social__media">
+        <button
+          type="button"
+          class="social__button"
+          (click)="loginWithGoogle()"
+        >
+          <img src="assets/img/google.svg" alt="" srcset="" />
+        </button>
+        <button
+          type="button"
+          class="social__button"
+          (click)="loginWithFacebook()"
+        >
+          <i class="fa-brands fa-facebook"></i>
+        </button>
+        <button
+          type="button"
+          class="social__button"
+          (click)="loginWithGithub()"
+        >
+          <i class="fa-brands fa-github"></i>
+        </button>
+        <button type="button" class="social__button">
+          <i class="fa-brands fa-twitter"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

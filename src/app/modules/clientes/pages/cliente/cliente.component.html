@@ -1,0 +1,34 @@
+<div class="container" *ngIf="clientes.length > 0">
+  <div class="row">
+    <div class="col">
+      <table class="table table-bordered mt-5">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let cliente of clientes">
+          <tr>
+            <th scope="row">{{ cliente.nombre }}</th>
+            <td>{{ cliente.apellido }}</td>
+            <td>{{ cliente.email }}</td>
+            <td class="text-center">
+              <a class="link-primary link__personal">
+                <i class="fa-solid fa-pen"></i>
+              </a>
+              <a
+                class="link-primary link__personal"
+                (click)="deleteClienteById(cliente)"
+              >
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

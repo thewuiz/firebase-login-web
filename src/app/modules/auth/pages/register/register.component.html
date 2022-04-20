@@ -1,0 +1,46 @@
+<div class="contenedor">
+  <form class="form__login" method="post">
+    <h1 class="title">Registrarse</h1>
+    <div class="inputs__form">
+      <div class="input__form">
+        <i class="fa-solid fa-user" aria-hidden="true"></i>
+        <input
+          [(ngModel)]="user.email"
+          name="InputEmail"
+          type="text"
+          placeholder="Email"
+          required
+        />
+      </div>
+      <div class="input__form">
+        <i class="fa-solid fa-key"></i>
+        <input
+          [(ngModel)]="user.password"
+          name="InputPassword"
+          type="password"
+          placeholder="Password"
+          required
+        />
+      </div>
+      <a routerLink="auth/login" class="input__link">Login</a>
+      <button type="submit" (click)="register()" class="cta">
+        Crear cuenta
+      </button>
+      <p class="text">O registrese con:</p>
+      <div class="social__media">
+        <button class="social__button">
+          <img src="assets/img/google.svg" alt="" srcset="" />
+        </button>
+        <button class="social__button">
+          <i class="fa-brands fa-facebook"></i>
+        </button>
+        <button class="social__button">
+          <i class="fa-brands fa-github"></i>
+        </button>
+        <button class="social__button">
+          <i class="fa-brands fa-twitter"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

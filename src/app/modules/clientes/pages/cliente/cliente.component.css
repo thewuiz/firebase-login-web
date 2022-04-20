@@ -1,0 +1,8 @@
+.link__personal {
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.link__personal:hover {
+  cursor: pointer;
+}
