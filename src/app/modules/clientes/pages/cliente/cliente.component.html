@@ -1,7 +1,17 @@
-<div class="container" *ngIf="clientes.length > 0">
+<div class="container mt-5">
+  <button type="button" class="btn btn-primary my-3">
+    Agregar nuevo usuario
+  </button>
   <div class="row">
     <div class="col">
-      <table class="table table-bordered mt-5">
+      <div
+        *ngIf="clientes.length == 0"
+        class="alert alert-primary"
+        role="alert"
+      >
+        No hay usuarios en la base de datos. :'v
+      </div>
+      <table *ngIf="clientes.length > 0" class="table table-bordered">
         <thead class="table-dark">
           <tr>
             <th scope="col">Nombre</th>
@@ -10,8 +20,8 @@
             <th></th>
           </tr>
         </thead>
-        <tbody *ngFor="let cliente of clientes">
-          <tr>
+        <tbody *ngIf="clientes.length > 0">
+          <tr *ngFor="let cliente of clientes">
             <th scope="row">{{ cliente.nombre }}</th>
             <td>{{ cliente.apellido }}</td>
             <td>{{ cliente.email }}</td>

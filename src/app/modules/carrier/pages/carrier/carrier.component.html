@@ -1,0 +1,82 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h1>Carriers</h1>
+      <button
+        type="button"
+        class="btn btn-primary my-3"
+        [routerLink]="['form']"
+      >
+        Agregar nuevo transportista
+      </button>
+      <div
+        *ngIf="carriers.length == 0"
+        class="alert alert-primary"
+        role="alert"
+      >
+        No hay transportistas en la base de datos.
+      </div>
+      <table *ngIf="carriers.length > 0" class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefono</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="carriers.length > 0">
+          <tr *ngFor="let carrier of carriers">
+            <th scope="row">{{ carrier.name }}</th>
+            <td>{{ carrier.last_name }}</td>
+            <td>{{ carrier.email }}</td>
+            <td>{{ carrier.phone }}</td>
+            <td class="text-center">
+              <a class="link-primary link__personal">
+                <i class="fa-solid fa-pen"></i>
+              </a>
+              <a
+                class="link-primary link__personal"
+                (click)="deleteClienteById(carrier)"
+              >
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- =================== Appointments ===================== -->
+    <div class="col-12">
+      <h1>Citas</h1>
+      <div
+        *ngIf="carriers.length == 0"
+        class="alert alert-primary"
+        role="alert"
+      >
+        No hay transportistas en la base de datos.
+      </div>
+      <table *ngIf="appointments.length > 0" class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">appointment_time</th>
+            <th scope="col">date</th>
+            <th scope="col">Email</th>
+            <th scope="col">order_number</th>
+            <th scope="col">vendor</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="carriers.length > 0">
+          <tr *ngFor="let appointment of appointments">
+            <th scope="row">{{ appointment.appointment_time }}</th>
+            <td>{{ appointment.date }}</td>
+            <td>{{ appointment.email_carrier }}</td>
+            <td>{{ appointment.order_number }}</td>
+            <td>{{ appointment.vendor }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

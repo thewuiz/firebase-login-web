@@ -1,7 +1,7 @@
 <div class="contenedor">
   <form
     id="loginform"
-    (ngSubmit)="login()"
+    (ngSubmit)="getCustomToken()"
     class="form__login"
     method="post"
     autocomplete="off"
@@ -13,7 +13,7 @@
         <input
           [(ngModel)]="user.email"
           name="InputEmail"
-          type="text"
+          type="email"
           placeholder="Email"
           required
         />

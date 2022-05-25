@@ -16,6 +16,7 @@ export class ClienteComponent implements OnInit, OnDestroy {
   constructor(private service: ApiService) {}
 
   ngOnInit(): void {
+    // this.service.getTest().subscribe((response) => console.log(response));
     this.getAllClientes();
   }
 
@@ -30,7 +31,7 @@ export class ClienteComponent implements OnInit, OnDestroy {
           this.clientes = response;
         },
         error: (err) => {
-          Swal.fire('Error', err.error.mensaje, 'error');
+          console.error(err);
         },
         complete: () => {},
       })
@@ -55,7 +56,7 @@ export class ClienteComponent implements OnInit, OnDestroy {
               Swal.fire('OK!', response.mensaje, 'success');
             },
             error: (error) => {
-              console.log(error);
+              console.error(error);
               Swal.fire(
                 'Ups!',
                 `Ocurrio un error al eliminar al cliente`,

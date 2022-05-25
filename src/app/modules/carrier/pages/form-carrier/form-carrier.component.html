@@ -1,0 +1,107 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="card p-5">
+      <h4>Agregar transportista</h4>
+      <form (ngSubmit)="createCarrier()" method="post" autocomplete="off">
+        <div class="mb-3">
+          <label for="InputName" class="form-label">Nombre(s)</label>
+          <input
+            [(ngModel)]="carrier.name"
+            type="text"
+            class="form-control"
+            id="InputName"
+            name="InputName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputLastName" class="form-label">Apellido(s)</label>
+          <input
+            [(ngModel)]="carrier.last_name"
+            type="text"
+            class="form-control"
+            id="InputLastName"
+            name="InputLastName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputEmail" class="form-label">Email</label>
+          <input
+            [(ngModel)]="carrier.email"
+            type="email"
+            class="form-control"
+            id="InputEmail"
+            aria-describedby="emailHelp"
+            name="InputEmail"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputTelefono" class="form-label">Telefono</label>
+          <input
+            [(ngModel)]="carrier.phone"
+            type="number"
+            class="form-control"
+            id="InputTelefono"
+            name="InputTelefono"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputCompannia" class="form-label">
+            Compañia de transporte
+          </label>
+          <input
+            [(ngModel)]="carrier.company_transport"
+            type="text"
+            class="form-control"
+            id="InputCompannia"
+            name="InputCompannia"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputLicencia" class="form-label">Licencia</label>
+          <input
+            [(ngModel)]="carrier.license"
+            type="text"
+            class="form-control"
+            id="InputLicencia"
+            name="InputLicencia"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputPlaca" class="form-label">Placa</label>
+          <input
+            [(ngModel)]="carrier.license_plate"
+            type="text"
+            class="form-control"
+            id="InputPlaca"
+            name="InputPlaca"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Tipo de transporte
+          </label>
+          <input
+            [(ngModel)]="carrier.type_transport"
+            type="text"
+            class="form-control"
+            id="InputTransporte"
+            name="InputTransporte"
+          />
+        </div>
+        <div class="col-12" *ngIf="errors.length !== 0">
+          <ul class="alert alert-danger">
+            <li class="ms-2" *ngFor="let err of errors">{{ err }}</li>
+          </ul>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <button
+          type="button"
+          [routerLink]="['/home/carriers']"
+          class="btn mx-2 btn-danger"
+        >
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
