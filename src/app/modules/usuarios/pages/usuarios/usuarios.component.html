@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-12">
+      <h1>Carriers</h1>
+      <button
+        type="button"
+        class="btn btn-primary my-3"
+        [routerLink]="['create']"
+      >
+        Agregar nuevo usuario
+      </button>
+      <div
+        *ngIf="usuarios.length == 0"
+        class="alert alert-primary"
+        role="alert"
+      >
+        No hay usuarios en la base de datos.
+      </div>
+      <table *ngIf="usuarios.length > 0" class="table table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th scope="col">username</th>
+            <th scope="col">email</th>
+            <th scope="col">phone</th>
+            <th scope="col">role</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody *ngIf="usuarios.length > 0">
+          <tr *ngFor="let user of usuarios">
+            <th scope="row">{{ user.username }}</th>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+            <td>{{ user.role }}</td>
+            <td class="text-center">
+              <a class="link-primary link__personal">
+                <i class="fa-solid fa-pen"></i>
+              </a>
+              <a
+                class="link-primary link__personal"
+                (click)="deleteUsuarioById(user)"
+              >
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -2,9 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { Appointment } from '@models/appointment';
 import { Carrier } from '@models/carrier';
 import { Cliente } from '@models/cliente';
-import { Subscription } from 'rxjs';
+import { mergeMapTo, Subscription } from 'rxjs';
 import { ApiService } from 'src/app/core/http/api.service';
 import Swal from 'sweetalert2';
+import { getMessaging, getToken } from 'firebase/messaging';
+import { environment } from 'src/environments/environment';
+import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 
 @Component({
   selector: 'app-carrier',
@@ -16,15 +19,32 @@ export class CarrierComponent implements OnInit {
   public appointments: Appointment[] = [];
   private subscription: Subscription = new Subscription();
 
-  constructor(private service: ApiService) {}
+  constructor(
+    private service: ApiService,
+    private afMessaging: AngularFireMessaging
+  ) {}
 
   ngOnInit(): void {
     this.getAllCarriers();
     this.getAllAppointments();
+    this.fmc();
   }
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
+  }
+
+  fmc() {
+    this.afMessaging.requestPermission
+      .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+      .subscribe(
+        (token) => {
+          console.log('Permission granted! Save to the server!', token);
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
   }
 
   getAllAppointments() {

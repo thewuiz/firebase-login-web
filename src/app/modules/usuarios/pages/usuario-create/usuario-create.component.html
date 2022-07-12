@@ -1,0 +1,68 @@
+<div class="container pt-5">
+  <div class="row">
+    <div class="card p-5">
+      <h4>Agregar usuario</h4>
+      <form (ngSubmit)="createUser()" method="post" autocomplete="off">
+        <div class="mb-3">
+          <label for="InputName" class="form-label">Username</label>
+          <input
+            [(ngModel)]="user.username"
+            type="text"
+            class="form-control"
+            id="InputName"
+            name="InputName"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputEmail" class="form-label">Email</label>
+          <input
+            [(ngModel)]="user.email"
+            type="email"
+            class="form-control"
+            id="InputEmail"
+            aria-describedby="emailHelp"
+            name="InputEmail"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="InputPassword" class="form-label">Password</label>
+          <input
+            [(ngModel)]="user.password"
+            type="password"
+            class="form-control"
+            id="InputPassword"
+            name="InputPassword"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">
+            Tipo de transporte
+          </label>
+          <input
+            [(ngModel)]="user.phone"
+            type="number"
+            class="form-control"
+            id="InputTelefono"
+            name="InputTelefono"
+            required
+          />
+        </div>
+        <div class="col-12" *ngIf="errors?.length !== 0">
+          <ul class="alert alert-danger">
+            <li class="ms-2" *ngFor="let err of errors">{{ err }}</li>
+          </ul>
+        </div>
+        <button type="submit" class="btn btn-primary">Crear</button>
+        <button
+          type="button"
+          [routerLink]="['/home/carriers']"
+          class="btn mx-2 btn-danger"
+        >
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

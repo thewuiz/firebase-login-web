@@ -6,7 +6,7 @@ export class Appointment {
   appointment_time: string = '';
   date: string = '';
   email_carrier: string = '';
-  final_position: GeoPoint = new GeoPoint(0, 0);
+  final_position: GeoPoint = new GeoPoint(0.0, 0.0);
   folio: String = '';
   incidents: Object = [];
   order_number: string = '';

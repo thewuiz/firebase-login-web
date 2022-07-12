@@ -4,7 +4,6 @@ import { AuthService } from 'src/app/core/authentication/auth.service';
 import firebase from 'firebase/compat/app';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-import { ApiService } from 'src/app/core/http/api.service';
 import { Subscription } from 'rxjs';
 
 @Component({
